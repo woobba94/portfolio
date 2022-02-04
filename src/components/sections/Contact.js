@@ -1,4 +1,23 @@
+import { useState } from 'react';
+import styled from 'styled-components';
+
+const Honeypot = styled.fieldset`
+  display: none;
+`;
+
+const ThankYouMessage = styled.div`
+  display: none;
+`;
+
 function Contact() {
+  const [emailVal, setEmailVal] = useState('');
+  const [honeypotVal, setHoneypotVal] = useState('');
+  const emailChangeState = (e) => {
+    setEmailVal(e.target.value);
+  };
+  const honeypotChangeState = (e) => {
+    setHoneypotVal(e.target.value);
+  };
   return (
     <div className="Contact">
       <form
@@ -22,9 +41,9 @@ function Contact() {
               id="email"
               name="email"
               type="email"
-              value=""
               required
               placeholder="답변받을 이메일주소"
+              onChange={emailChangeState}
             />
           </fieldset>
 
@@ -33,18 +52,22 @@ function Contact() {
             <textarea id="message" name="message" rows="10" placeholder="보낼 내용"></textarea>
           </fieldset>
 
-          <fieldset className="pure-group honeypot-field">
+          <Honeypot className="pure-group honeypot-field">
             <label htmlFor="honeypot">Spam Strainer</label>
-            <input id="honeypot" type="text" name="honeypot" value="" />
-          </fieldset>
+            <input id="honeypot" type="text" name="honeypot" onChange={honeypotChangeState} />
+          </Honeypot>
           <button className="btn-contact">SEND</button>
         </div>
 
-        <div className="thankyou_message" style="display:none;">
+        <ThankYouMessage className="thankyou_message">
           <p>Thank you for your email.</p>
           <p>I will reply soon.</p>
-        </div>
+        </ThankYouMessage>
       </form>
+      <div className="left">
+        <p>어떤 의견이든 보내주세요.</p>
+        <p>피드백에 미리 감사드립니다.</p>
+      </div>
     </div>
   );
 }
