@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import React from 'react';
+import Modal from '../Modal';
 const slideData = [
   {
     index: 0,
@@ -76,7 +77,9 @@ function Slide(props) {
 
       <article className="slide__content">
         <h2 className="slide__headline">{headline}</h2>
-        <button className="slide__action btn">{button}</button>
+        <button className="slide__action btn" onClick={props.showModal}>
+          {button}
+        </button>
       </article>
     </li>
   );
@@ -140,6 +143,9 @@ function Slider(props) {
               slide={slide}
               current={current}
               handleSlideClick={handleSlideClick}
+              modalState={props.modalState}
+              showModal={props.showModal}
+              hideModal={props.hideModal}
             />
           );
         })}
@@ -159,9 +165,28 @@ function Slider(props) {
 }
 
 function ProjectTemp() {
+  const [modalState, setModalState] = useState(false);
+  const showModal = () => {
+    document.body.style.overflow = 'hidden';
+    setModalState(true);
+  };
+  const hideModal = () => {
+    document.body.style.overflow = 'unset';
+    setModalState(false);
+  };
   return (
     <div className="ProjectTemp">
-      <Slider heading="Example Slider" slides={slideData} />
+      <Slider
+        heading="Example Slider"
+        slides={slideData}
+        modalState={modalState}
+        showModal={showModal}
+        hideModal={hideModal}
+      />
+      <Modal show={modalState} handleClose={hideModal}>
+        <p>Modal</p>
+        <p>Data</p>
+      </Modal>
     </div>
   );
 }
