@@ -27,6 +27,7 @@ body {
   width: 100%;
   text-align: center;
   overflow: hidden;
+  z-index: -10;
 }
 .CenterLine svg {
   height: 100%;
@@ -152,12 +153,23 @@ body {
 .Projects {
 }
 .ProjectTemp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
   overflow: hidden;
 }
 
 .Contact {
+  display: flex;
+}
+.Contact .left {
+  width: 50vw;
+}
+.Contact form {
+  position: relative;
+  width: 50vw;
 }
 
 /* animation */
@@ -180,6 +192,35 @@ body {
   to {
     width: 80%;
   }
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 20;
+}
+.modal .modal-main {
+  background: white;
+  width: 100%;
+  height: auto;
+}
+
+.display-block {
+  display: flex;
+}
+
+.display-none {
+  display: none;
 }
 
 /* ProjectTemp */
