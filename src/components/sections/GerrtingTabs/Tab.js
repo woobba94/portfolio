@@ -1,6 +1,6 @@
-import FirstTab from './tabs/FirstTab';
-import SecondTab from './tabs/SecondTab';
-import ThirdTab from './tabs/ThirdTab';
+import FirstTab from './FirstTab';
+import SecondTab from './SecondTab';
+import ThirdTab from './ThirdTab';
 import { useState } from 'react';
 
 const obj = {
