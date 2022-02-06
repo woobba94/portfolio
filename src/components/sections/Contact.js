@@ -21,10 +21,7 @@ function Contact() {
   return (
     <div className="Contact">
       <form
-        className="section-content gform pure-form pure-form-stacked"
-        data-aos="fade-left"
-        data-aos-duration="2000"
-        data-aos-delay="400"
+        className="gform pure-form pure-form-stacked"
         method="POST"
         data-email="example@email.net"
         action="https://script.google.com/macros/s/AKfycbyv7qnDKmarGeojIlFk0ycd_rwjdm5GnDMkeeo81Z4nC_CasvkJlBhcaHisWbcgGphK/exec"
@@ -64,7 +61,7 @@ function Contact() {
           <p>I will reply soon.</p>
         </ThankYouMessage>
       </form>
-      <div className="left">
+      <div className="right">
         <p>어떤 의견이든 보내주세요.</p>
         <p>피드백에 미리 감사드립니다.</p>
       </div>
