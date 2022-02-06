@@ -1,6 +1,20 @@
+:root {
+  --color-main-1: #b0cbd1;
+  --color-main-2: #4d727d;
+  --color-main-3: #1c1c1c;
+  --color-point-1: #f44957;
+  --color-point-2: #f36796;
+  --color-point-3: #f44957;
+  /* --color-hourglass-1: #f449578c;
+  --color-hourglass-2: #f44957c9; */
+}
+
 body {
+  font-family: 'Noto Sans KR', sans-serif;
   height: 500vh;
   margin: 0;
+  font-weight: 100;
+  font-size: 20px;
 }
 
 .Header {
@@ -8,9 +22,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   height: 60px;
-  background-color: tomato;
+  background-color: rgba(0, 0, 0, 0.37);
 }
 
 .fab {
@@ -22,12 +36,13 @@ body {
 .CenterLine {
   height: 500vh;
   position: absolute;
-  top: 50vh;
+  top: 49vh;
   left: 0;
   width: 100%;
   text-align: center;
   overflow: hidden;
-  z-index: -10;
+  /* z-index: -1; */
+  z-index: 1;
 }
 .CenterLine svg {
   height: 100%;
@@ -49,105 +64,267 @@ body {
 }
 
 .Section .left {
-  width: 50vw;
+  width: 50%;
   left: 0;
 }
 .Section .right {
-  width: 50vw;
+  width: 50%;
   right: 0;
 }
 
 /* Sections */
 .Intro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   height: 100%;
   width: 100%;
-  /* background: url('../public/intro-img.jpg');
-  background-size: cover; */
+  background: var(--color-main-3);
+  /* background: #fff; */
 }
+.Intro canvas {
+  height: fit-content;
+  width: fit-content;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  background: var(--color-main-3);
+  transform: translate(-50%, 0%);
+  background: #fff;
+}
+/* .Intro .hourglass {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-main-3);
+  border-radius: 0 0 50% 50%;
+  border: 10px solid #fff;
+}
+.Intro .hourglass::before {
+  content: '';
+  position: absolute;
+  top: 80%;
+  left: -75%;
+  width: 250%;
+  height: 250vw;
+  border-radius: 40%;
+  background-color: var(--color-hourglass-2);
+  animation: thing 33s infinite linear;
+}
+.Intro .hourglass::after {
+  content: '';
+  position: absolute;
+  top: 80%;
+  left: -75%;
+  width: 250%;
+  height: 250vw;
+  border-radius: 40%;
+  background-color: var(--color-hourglass-1);
+  animation: thing 23s infinite linear;
+}
+@keyframes thing {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} */
+/* .Intro video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+} */
 .Intro .left {
+  position: absolute;
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: rgba(255, 255, 255, 0.795);
+  margin: 200px 0 0 100px;
+  font-size: 36px;
+  font-weight: 700;
+}
+.Intro .right {
+  height: 100%;
+}
+.Intro .shadow {
+  position: absolute;
+  top: 10%;
+  left: 8%;
+  height: fit-content;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: rgba(255, 255, 255, 0.05);
+  font-size: 48px;
+  font-weight: 900;
+}
+
+.Greetings {
+  position: relative;
+  /* background: linear-gradient(to bottom, var(--color-main-2), var(--color-main-3)); */
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+.Greetings .greetingsContent {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  width: 35vw;
+  padding: 50px;
+  color: var(--color-main-3);
+  transform: translate(0%, -50%);
+}
+.Greetings .greetingsContent .contentTitle {
+  font-weight: 700;
+  font-size: 36px;
+  color: var(--color-main-3);
+}
+.Greetings .right {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  height: 80%;
+  background: url(./components/sections/Greetings-img.jpg) no-repeat;
+  background-size: cover;
+  width: 0%;
+}
+
+.Skills {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.Intro .right {
-  height: 100%;
-  background: url('../public/intro-img.jpg');
-  background-size: cover;
-}
-
-.Greetings {
-  background-color: thistle;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
-.Greetings .greetingsContent {
-  width: 50vw;
-  background-color: tomato;
+.Skills .skills-wrap {
+  height: 0%;
+  width: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 0;
+  border: none;
+  border-radius: 30px;
+  background-color: white;
+  z-index: 2;
+  overflow: hidden;
 }
-.Greetings .Tab {
+.Skills .skills-wrap .Skill {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  font-size: 20px;
+  position: relative;
+}
+.Skill .circle-progress {
+  width: 60px;
+  position: absolute;
+}
+.skill-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  width: 70px;
+  position: relative;
+}
+.skill-logo .progressbar-text {
+  position: absolute;
+  top: -12px;
+  right: -30px;
+  font-size: 16px;
+  color: var(--color-point-1);
+  font-weight: 900;
+}
+.skill-content {
+  margin-left: 30px;
+}
+.Skills .skills-wrap .Skill i {
+  font-size: 36px;
+  position: absolute;
+}
+.Skills .skills-wrap .Skill svg {
+  height: 100%;
+  width: 50px;
+  position: absolute;
+}
+.Skills .devicon-html5-plain {
+  color: #e44d26;
+}
+.Skills .devicon-css3-plain {
+  color: #2965f1;
+}
+.Skills .devicon-javascript-plain {
+  color: #f0db4f;
+}
+.Skills .devicon-react-original {
+  color: #61dbfb;
+}
+.Skills .devicon-cplusplus-plain {
+  color: #9c033a;
+}
+.Skills .devicon-python-plain {
+  color: #ffd845;
+}
+.Skills .animation-box {
+  position: absolute;
+  width: 0%;
+  height: 0%;
+  border-radius: 100%;
+  animation: skillsAnimationBox 1s linear forwards;
+}
+
+.Information {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.Information .left {
+  width: 50%;
+  position: absolute;
+  right: 50%;
+  height: 100%;
+  left: auto;
+  background: url(./components/sections/Information-img.jpg) no-repeat;
+  background-size: cover;
+}
+.Information .Tab {
+  position: absolute;
+  top: 10%;
+  left: 50%;
   height: 70%;
-  width: 50vw;
-  background-color: yellowgreen;
+  width: 50%;
+  background-color: none;
 }
-.Greetings .Tab .title {
+.Information .Tab .title {
   position: relative;
   padding: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  z-index: 2;
 }
-.Greetings .Tab .title button {
+.Information .Tab .title button {
   height: 80px;
   width: 25%;
 }
-.Greetings .Tab .contents {
+.Information .Tab .contents {
   margin: 0 0 0 20px;
-}
-
-.Skills {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-.Skills .icon-wrap {
-  width: 50%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 20px;
-  border: 1px solid tomato;
-  border-radius: 30px;
-  background-color: white;
-  z-index: 2;
-}
-.Skills.text-wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.Skills .icon-html {
-  color: #e44d26;
-}
-.Skills .icon-css {
-  color: #2965f1;
-}
-.Skills .icon-js {
-  color: #f0db4f;
-}
-.Skills .icon-react {
-  color: #61dbfb;
 }
 
 .Projects {
@@ -162,10 +339,8 @@ body {
 }
 
 .Contact {
+  width: 100%;
   display: flex;
-}
-.Contact .left {
-  width: 50vw;
 }
 .Contact form {
   position: relative;
@@ -185,12 +360,31 @@ body {
 }
 
 .unfold-icon {
-  width: 50%;
-  animation: unfold-width 1s linear forwards;
+  animation: unfold-width 1s linear 1s forwards;
 }
 @keyframes unfold-width {
   to {
-    width: 80%;
+    border: 2px solid var(--color-point-1);
+    padding: 20px;
+    width: 70%;
+    height: 70%;
+  }
+}
+
+.fade-right {
+  animation: fade-right 1s linear forwards;
+}
+@keyframes fade-right {
+  to {
+    width: 28%;
+  }
+}
+
+@keyframes skillsAnimationBox {
+  to {
+    width: 350vh;
+    height: 350vh;
+    background-color: var(--color-main-3);
   }
 }
 
@@ -321,6 +515,7 @@ body {
   margin: 0 auto;
   position: relative;
   width: var(--slide-size);
+  z-index: 2;
 }
 .slider__wrapper {
   display: flex;
