@@ -19,9 +19,9 @@ function Tab() {
   return (
     <div className="Tab">
       <ul className="title">
-        <button onClick={() => clickHandler(0)}>First</button>
-        <button onClick={() => clickHandler(1)}>Second</button>
-        <button onClick={() => clickHandler(2)}>Third</button>
+        <button onClick={() => clickHandler(0)}>기본정보</button>
+        <button onClick={() => clickHandler(1)}>교육</button>
+        <button onClick={() => clickHandler(2)}>자격증</button>
       </ul>
       <div className="contents">{obj[activeId]}</div>
     </div>
