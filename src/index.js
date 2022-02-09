@@ -23,7 +23,7 @@ window.onload = function () {
     let scrollPercentage =
       (document.documentElement.scrollTop + document.body.scrollTop) /
       (document.documentElement.scrollHeight - document.documentElement.clientHeight);
-    console.log(scrollPercentage);
+    // console.log(scrollPercentage);
     // Length to offset the dashes
     let drawLength = pathLength * scrollPercentage * speed;
     if (!skillFlag && scrollPercentage > 0.31) {
@@ -229,8 +229,8 @@ function setProgress() {
 document.addEventListener('DOMContentLoaded', () => {
   var canvas = document.getElementById('forest');
   if (canvas.getContext) {
-    console.log(`window.innerWidth  :  ${window.innerWidth}`);
-    console.log(`window.innerHeight :  ${window.innerHeight}`);
+    // console.log(`window.innerWidth  :  ${window.innerWidth}`);
+    // console.log(`window.innerHeight :  ${window.innerHeight}`);
     var ctx = canvas.getContext('2d');
     // canvas.width = window.innerWidth;
     // canvas.height = window.innerHeight;

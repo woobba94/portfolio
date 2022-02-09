@@ -1,11 +1,11 @@
 const skillData = {
   html: {
     skillLogo: 'devicon-html5-plain',
-    skillContent: '시멘틱한 웹 개발을 지향합니다.',
+    skillContent: '시멘틱한 마크업 구조를 지향합니다.',
   },
   css: {
     skillLogo: 'devicon-css3-plain',
-    skillContent: 'css를 잘합니다.',
+    skillContent: '스타일 구조화에 관심이 많습니다.',
   },
   javascript: {
     skillLogo: 'devicon-javascript-plain',
