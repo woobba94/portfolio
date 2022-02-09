@@ -1,5 +1,5 @@
 :root {
-  --color-main-1: #b0cbd1;
+  --color-main-1: #eeeeee;
   --color-main-2: #4d727d;
   --color-main-3: #1c1c1c;
   --color-point-1: #f44957;
@@ -9,6 +9,11 @@
   --color-hourglass-2: #f44957c9; */
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 body {
   font-family: 'Noto Sans KR', sans-serif;
   height: 500vh;
@@ -80,16 +85,22 @@ body {
   background: var(--color-main-3);
   /* background: #fff; */
 }
-.Intro canvas {
+.Intro .canvas-wrap {
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  background: #fff;
+}
+.Intro .canvas-wrap canvas {
   height: fit-content;
   width: fit-content;
   position: absolute;
   left: 50%;
-  bottom: 50%;
-  background: var(--color-main-3);
+  bottom: 0%;
   transform: translate(-50%, 0%);
   background: #fff;
 }
+
 /* .Intro .hourglass {
   overflow: hidden;
   position: relative;
@@ -144,7 +155,8 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  color: rgba(255, 255, 255, 0.795);
+  color: var(--color-main-1);
+  mix-blend-mode: difference;
   margin: 200px 0 0 100px;
   font-size: 36px;
   font-weight: 700;
@@ -163,6 +175,7 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   color: rgba(255, 255, 255, 0.05);
+  mix-blend-mode: difference;
   font-size: 48px;
   font-weight: 900;
 }
@@ -172,7 +185,7 @@ body {
   /* background: linear-gradient(to bottom, var(--color-main-2), var(--color-main-3)); */
   height: 100%;
   width: 100%;
-  background-color: white;
+  background-color: var(--color-main-1);
 }
 .Greetings .greetingsContent {
   position: absolute;
@@ -218,7 +231,7 @@ body {
   padding: 0;
   border: none;
   border-radius: 30px;
-  background-color: white;
+  background-color: var(--color-main-1);
   z-index: 2;
   overflow: hidden;
 }
@@ -336,6 +349,7 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  background: var(--color-main-3);
 }
 
 .Contact {
@@ -360,11 +374,18 @@ body {
 }
 
 .unfold-icon {
-  animation: unfold-width 1s linear 1s forwards;
+  animation: unfold-width 1.5s linear 1s forwards;
 }
 @keyframes unfold-width {
-  to {
-    border: 2px solid var(--color-point-1);
+  30% {
+    border: 5px solid var(--color-point-1);
+  }
+  50% {
+    width: 70%;
+    height: 1%;
+  }
+  100% {
+    border: 5px solid var(--color-point-1);
     padding: 20px;
     width: 70%;
     height: 70%;
@@ -468,7 +489,7 @@ body {
   background-color: var(--color-primary);
   border: none;
   border-radius: 0.125rem;
-  color: white;
+  color: var(--color-main-1);
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
@@ -526,7 +547,7 @@ body {
 }
 .slide {
   align-items: center;
-  color: white;
+  color: var(--color-main-1);
   display: flex;
   flex: 1;
   flex-direction: column;
