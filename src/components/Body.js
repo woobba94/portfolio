@@ -6,7 +6,7 @@ function Body() {
       <Section name="Intro" />
       <Section name="Greetings" />
       <Section name="Skills" />
-      <Section name="Information" />
+      <Section name="Experience" />
       <Section name="Projects" />
       <Section name="Contact" />
     </div>
