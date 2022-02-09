@@ -33,7 +33,7 @@ window.onload = function () {
       iconWrap.classList.add('unfold-icon');
       let skillsAnimationBox = document.querySelector('.Skills').firstChild;
       skillsAnimationBox.classList.add('animation-box');
-      setTimeout(setProgress, 2800);
+      setTimeout(setProgress, 2500);
     } else if (!greetingFlag && scrollPercentage > 0.13) {
       greetingFlag = true;
       console.log('Greeting right 페이드 시작');
@@ -229,14 +229,17 @@ function setProgress() {
 document.addEventListener('DOMContentLoaded', () => {
   var canvas = document.getElementById('forest');
   if (canvas.getContext) {
+    console.log(`window.innerWidth  :  ${window.innerWidth}`);
+    console.log(`window.innerHeight :  ${window.innerHeight}`);
     var ctx = canvas.getContext('2d');
-    ctx.canvas.width = window.innerWidth;
-    ctx.canvas.height = window.innerHeight;
-    recursiveTree(ctx, ctx.canvas.width / 2, ctx.canvas.height, 40, -Math.PI / 2, 13, 4);
+    // canvas.width = window.innerWidth;
+    // canvas.height = window.innerHeight;
+    recursiveTree(ctx, ctx.canvas.width / 2 - 1, ctx.canvas.height, 35, -Math.PI / 2, 12, 5);
   }
 });
 
 var recursiveTree = function (ctx, startX, startY, length, angle, depth, branchWidth) {
+  // console.log(startX);
   var rand = Math.random,
     newLength,
     newAngle,
