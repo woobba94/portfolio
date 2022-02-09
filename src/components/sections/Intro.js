@@ -1,4 +1,3 @@
-import myVideo from './Intro-bg.mp4';
 function Intro() {
   return (
     <div className="Intro">
