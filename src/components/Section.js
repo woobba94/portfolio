@@ -1,4 +1,4 @@
-import Intro from './sections/Intro';
+import Intro from './sections/Intro/Intro';
 import Greetings from './sections/Greetings';
 import Skills from './sections/Skills';
 import Projects from './sections/Projects';

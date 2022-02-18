@@ -1,8 +1,10 @@
+import Tree from './Tree';
+
 function Intro() {
   return (
     <div className="Intro">
       <div className="canvas-wrap">
-        <canvas id="forest" width={600} height={500}></canvas>
+        <Tree />
       </div>
       {/* <video src={myVideo} muted autoPlay loop></video> */}
       {/* <div className="hourglass"></div> */}
