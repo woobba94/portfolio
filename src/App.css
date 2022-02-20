@@ -1,5 +1,5 @@
 :root {
-  --color-main-1: #eeeeee;
+  --color-main-1: #e9e9e9;
   --color-main-2: #4d727d;
   --color-main-3: #1c1c1c;
   --color-point-1: #f44957;
@@ -20,6 +20,7 @@ body {
   margin: 0;
   font-weight: 100;
   font-size: 20px;
+  background-color: var(--color-main-1);
 }
 
 .Header {
@@ -231,11 +232,13 @@ body {
   padding: 0;
   border: none;
   border-radius: 30px;
-  background-color: var(--color-main-1);
+  background-color: var(--color-main-3);
+  color: var(--color-main-1);
   z-index: 2;
   overflow: hidden;
 }
 .Skills .skills-wrap .Skill {
+  opacity: 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -244,6 +247,7 @@ body {
   font-size: 20px;
   position: relative;
 }
+
 .Skill .circle-progress {
   width: 60px;
   position: absolute;
@@ -294,6 +298,10 @@ body {
 .Skills .devicon-python-plain {
   color: #ffd845;
 }
+.Skills .devicon-github-original {
+  color: var(--color-main-1);
+}
+
 .Skills .animation-box {
   position: absolute;
   width: 0%;
@@ -364,6 +372,17 @@ body {
 }
 
 /* animation */
+
+.fadeOn {
+  opacity: 0;
+  animation: fadeOn 2s linear forwards;
+}
+@keyframes fadeOn {
+  to {
+    opacity: 1;
+  }
+}
+
 .draw {
   stroke-dasharray: 3000;
   stroke-dashoffset: 3000;
@@ -376,15 +395,19 @@ body {
 }
 
 .unfold-icon {
-  animation: unfold-width 1.5s linear 1s forwards;
+  animation: unfold-width 2s linear forwards;
 }
 @keyframes unfold-width {
-  30% {
+  0% {
     border: 5px solid var(--color-point-1);
   }
-  50% {
-    width: 70%;
-    height: 1%;
+  35% {
+    width: 60px;
+    height: 60px;
+  }
+  40% {
+    width: 50px;
+    height: 50px;
   }
   100% {
     border: 5px solid var(--color-point-1);

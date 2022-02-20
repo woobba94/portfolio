@@ -54,7 +54,7 @@ function setProgress() {
   [].forEach.call(progressBox, function (progressBox) {
     var bar = new ProgressBar.Circle(progressBox, {
       color: '#f44957',
-      trailColor: '#eee',
+      trailColor: '#e9e9e9',
       trailWidth: 1,
       duration: 3000,
       easing: 'bounce',
@@ -83,11 +83,22 @@ function Skills() {
   const scrollPercentage = useContext(ScrollContext);
   const iconWrap = useRef(null);
   const skillsAnimationBox = useRef(null);
+
+  function fadeOn() {
+    console.log('skills fadeOn');
+    let arr = iconWrap.current.children;
+    let length = arr.length;
+    for (let i = 0; i < length; i++) {
+      arr[i].classList.add('fadeOn');
+    }
+  }
+
   useEffect(() => {
     if (!skillsFlag && scrollPercentage > 0.31) {
       console.log('skillsFlag');
       setSkillsFlag(true);
-      setTimeout(setProgress, 2500);
+      setTimeout(setProgress, 2000);
+      setTimeout(fadeOn, 2000);
       iconWrap.current.classList.add('unfold-icon');
       skillsAnimationBox.current.classList.add('animation-box');
     }
