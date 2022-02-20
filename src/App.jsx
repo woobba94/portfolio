@@ -4,6 +4,7 @@ import GreetingsLine from './components/GreetingsLine';
 import CenterLine from './components/CenterLine';
 import React, { useState, useEffect } from 'react';
 import { ScrollContext } from './context/ScrollContext';
+import NavBar from './components/NavBar';
 
 function App() {
   console.log('App 렌더링');
@@ -26,10 +27,11 @@ function App() {
   return (
     <ScrollContext.Provider value={scrollPercentage}>
       <div className="App">
+        <NavBar />
         <CenterLine />
         <GreetingsLine />
         <Header />
-        <Body />
+        <Body></Body>
         <Footer />
       </div>
     </ScrollContext.Provider>
