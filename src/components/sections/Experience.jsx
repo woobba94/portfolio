@@ -50,7 +50,7 @@ function Experience() {
   };
 
   return (
-    <div className="Experience">
+    <div className="Experience" id="Experience">
       {/* <div className="left"></div>
       <Tab /> */}
       <ExperienceItem {...myExperienceData.highSchool} flag="left" />

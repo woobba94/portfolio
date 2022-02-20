@@ -105,7 +105,7 @@ function Skills() {
   }, [scrollPercentage]);
 
   return (
-    <div className="Skills">
+    <div className="Skills" id="Skills">
       <div ref={skillsAnimationBox}></div>
       <div className="skills-wrap" ref={iconWrap}>
         <Skill skillName="html" />

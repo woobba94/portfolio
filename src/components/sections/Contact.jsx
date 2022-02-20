@@ -19,7 +19,7 @@ function Contact() {
     setHoneypotVal(e.target.value);
   };
   return (
-    <div className="Contact">
+    <div className="Contact" id="Contact">
       <form
         className="gform pure-form pure-form-stacked"
         method="POST"

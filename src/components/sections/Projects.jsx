@@ -86,7 +86,7 @@ function ProjectTemp() {
   };
 
   return (
-    <div className="ProjectTemp">
+    <div className="ProjectTemp" id="Projects">
       <Slider
         heading="Example Slider"
         slides={slideData}

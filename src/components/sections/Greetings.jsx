@@ -15,7 +15,7 @@ function Greetings() {
   }, [scrollPercentage]);
 
   return (
-    <div className="Greetings">
+    <div className="Greetings" id="Intro">
       <div className="greetingsContent">
         <p className="contentTitle">안녕하세요. 주니어 프론트엔드 개발자 정우진입니다.</p>
         <p>
