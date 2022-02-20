@@ -40,6 +40,11 @@ body {
   z-index: 2;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* Lines */
 
 .CenterLine {
@@ -375,6 +380,24 @@ body {
 }
 
 /* animation */
+
+@keyframes openNav {
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes closeNav {
+  from {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
 
 .fadeOn {
   opacity: 0;
