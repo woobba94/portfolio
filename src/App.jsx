@@ -4,6 +4,7 @@ import GreetingsLine from './components/GreetingsLine';
 import CenterLine from './components/CenterLine';
 import React, { useState, useEffect } from 'react';
 import { ScrollContext } from './context/ScrollContext';
+
 function App() {
   console.log('App 렌더링');
   // 스크롤 퍼센트 (0 ~ 1)

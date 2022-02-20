@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+// import smoothscroll from 'smoothscroll-polyfill';
 
+// smoothscroll.polyfill();
 (function () {
   // 양식의 모든 데이터를 가져오고 객체를 반환합니다.
   function getFormData(form) {
