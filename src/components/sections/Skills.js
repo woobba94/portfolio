@@ -1,3 +1,6 @@
+import { useContext, useEffect, useRef, useState } from 'react';
+import { ScrollContext } from '../../context/ScrollContext';
+
 const skillData = {
   html: {
     skillLogo: 'devicon-html5-plain',
@@ -42,11 +45,58 @@ function Skill(props) {
   );
 }
 
+function setProgress() {
+  console.log('setProgress()');
+  const skillsPercent = [0.8, 0.7, 0.7, 0.5, 0.9, 0.4, 0.6];
+  let index = 0;
+  var ProgressBar = require('progressbar.js');
+  const progressBox = document.querySelectorAll('.skill-logo');
+  [].forEach.call(progressBox, function (progressBox) {
+    var bar = new ProgressBar.Circle(progressBox, {
+      color: '#f44957',
+      trailColor: '#eee',
+      trailWidth: 1,
+      duration: 3000,
+      easing: 'bounce',
+      strokeWidth: 6,
+      from: { color: '#000', a: 0 },
+      to: { color: '#f44957', a: 1 },
+      // Set default step function for all animate calls
+      step: function (state, circle) {
+        circle.path.setAttribute('stroke', state.color);
+
+        var value = Math.round(circle.value() * 100);
+        circle.setText(value + '%');
+      },
+    });
+    bar.animate(skillsPercent[index]); // Number from 0.0 to 1.0
+    index++;
+  });
+  const progressTexts = document.querySelectorAll('.progressbar-text');
+  [].forEach.call(progressTexts, function (progressTexts) {
+    progressTexts.style = '';
+  });
+}
+
 function Skills() {
+  const [skillsFlag, setSkillsFlag] = useState(false);
+  const scrollPercentage = useContext(ScrollContext);
+  const iconWrap = useRef(null);
+  const skillsAnimationBox = useRef(null);
+  useEffect(() => {
+    if (!skillsFlag && scrollPercentage > 0.31) {
+      console.log('skillsFlag');
+      setSkillsFlag(true);
+      setTimeout(setProgress, 2500);
+      iconWrap.current.classList.add('unfold-icon');
+      skillsAnimationBox.current.classList.add('animation-box');
+    }
+  }, [scrollPercentage]);
+
   return (
     <div className="Skills">
-      <div></div>
-      <div className="skills-wrap">
+      <div ref={skillsAnimationBox}></div>
+      <div className="skills-wrap" ref={iconWrap}>
         <Skill skillName="html" />
         <Skill skillName="css" />
         <Skill skillName="javascript" />
