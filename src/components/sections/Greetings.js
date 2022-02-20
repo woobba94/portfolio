@@ -1,5 +1,19 @@
-import GreetingImg from './Greetings-img.jpg';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { ScrollContext } from '../../context/ScrollContext';
 function Greetings() {
+  const scrollPercentage = useContext(ScrollContext);
+  const [greetingFlag, setGreetingFlag] = useState(false);
+
+  const rightImg = useRef(null);
+
+  useEffect(() => {
+    if (!greetingFlag && scrollPercentage > 0.13) {
+      console.log('Greeting right 페이드 시작');
+      setGreetingFlag(true);
+      rightImg.current.classList.add('fade-right');
+    }
+  }, [scrollPercentage]);
+
   return (
     <div className="Greetings">
       <div className="greetingsContent">
@@ -15,7 +29,7 @@ function Greetings() {
         <p>저는 끊임없는 성장의 가치를 알고있고 어디에서든 성장 할 준비가 되어있습니다.</p>
         <p>이런 저와 함께 성장 할 회사를 찾고 있습니다.</p>
       </div>
-      <div className="right"></div>
+      <div className="right" ref={rightImg}></div>
     </div>
   );
 }
