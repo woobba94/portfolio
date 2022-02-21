@@ -39,17 +39,21 @@ function NavBar() {
   const [childStates, setChildStates] = useState([false, false, false, false, false]);
   const scrollPercentage = useContext(ScrollContext);
   const buttonWrap = useRef();
+  const beforeTarget = useRef(0);
   function open() {
     buttonWrap.current.style.animation = 'openNav .5s linear forwards';
   }
   function close() {
     buttonWrap.current.style.animation = 'closeNav .5s linear forwards';
   }
-  console.log(childStates);
   function childStatesHandler(target) {
+    // target이 전과 같을땐 state변경x
+    if (beforeTarget.current === target) return;
+    // console.log('childStatesHandler');
     let newState = [false, false, false, false, false];
     newState[target] = true;
     setChildStates(newState);
+    beforeTarget.current = target;
   }
   useEffect(() => {
     if (!navFlag && scrollPercentage > 0.13) {
