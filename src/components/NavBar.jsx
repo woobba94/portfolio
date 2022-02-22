@@ -36,7 +36,7 @@ const Button = styled.div`
 
 function NavBar() {
   const [navFlag, setNavFlag] = useState(false);
-  const [childStates, setChildStates] = useState([false, false, false, false, false]);
+  const [childStates, setChildStates] = useState([true, false, false, false, false]);
   const scrollPercentage = useContext(ScrollContext);
   const buttonWrap = useRef();
   const beforeTarget = useRef(0);
