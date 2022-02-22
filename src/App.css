@@ -354,9 +354,6 @@ a {
   width: 50%;
   left: 50%;
 }
-.ExperienceItem {
-  border: 1px solid var(--color-point-3);
-}
 
 .Projects {
 }
@@ -447,6 +444,9 @@ a {
   animation: fade-right 1s linear forwards;
 }
 @keyframes fade-right {
+  from {
+    width: 0;
+  }
   to {
     width: 28%;
   }
