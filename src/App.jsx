@@ -1,5 +1,5 @@
 import './App.css';
-import { Header, Body, Footer } from './components/index';
+import { Body } from './components/index';
 import GreetingsLine from './components/GreetingsLine';
 import CenterLine from './components/CenterLine';
 import React, { useState, useEffect } from 'react';
@@ -30,9 +30,7 @@ function App() {
         <NavBar />
         <CenterLine />
         <GreetingsLine />
-        <Header />
-        <Body></Body>
-        <Footer />
+        <Body />
       </div>
     </ScrollContext.Provider>
   );
