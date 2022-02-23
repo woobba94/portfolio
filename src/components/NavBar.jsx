@@ -23,11 +23,11 @@ const Button = styled.div`
   cursor: pointer;
   font-weight: 700;
   transform: ${(props) => (props.active ? 'translateX(0px)' : 'translateX(-100px)')};
+  transition: all 0.4s;
   &:hover {
     background-color: var(--color-point-1);
     transform: translateX(0px);
   }
-  transition: all 0.3s;
 `;
 
 // const Active = styled.div`
