@@ -21,7 +21,6 @@ const ContactItem = styled.a`
   border-radius: 30px;
   z-index: 2;
   font-weight: 700;
-  margin: 0 auto;
   transform: translateY(-50%);
   cursor: pointer;
   &:hover {

@@ -465,9 +465,14 @@ a {
 
 @keyframes to-left {
   0% {
+    opacity: 0;
     border: 3px solid var(--color-point-1);
   }
+  40% {
+    opacity: 0;
+  }
   70% {
+    opacity: 1;
     width: 5%;
     height: 10%;
     left: 45%;
@@ -487,10 +492,15 @@ a {
 }
 @keyframes to-right {
   0% {
+    opacity: 0;
     z-index: 1;
     border: 3px solid var(--color-point-1);
   }
+  40% {
+    opacity: 0;
+  }
   70% {
+    opacity: 1;
     width: 5%;
     height: 10%;
     right: 45%;
