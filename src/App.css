@@ -50,7 +50,7 @@ a {
 .CenterLine {
   height: 500vh;
   position: absolute;
-  top: 49vh;
+  top: 50%;
   left: 0;
   width: 100%;
   text-align: center;
@@ -417,11 +417,12 @@ a {
   }
 }
 
-.unfold-icon {
-  animation: unfold-width 2s linear forwards;
+.onCircle {
+  animation: on-circle 2s linear forwards;
 }
-@keyframes unfold-width {
+@keyframes on-circle {
   0% {
+    opacity: 1;
     border: 5px solid var(--color-point-1);
   }
   35% {
@@ -433,10 +434,79 @@ a {
     height: 50px;
   }
   100% {
+    opacity: 1;
     border: 5px solid var(--color-point-1);
     padding: 20px;
     width: 70%;
     height: 70%;
+  }
+}
+
+@keyframes on-contact-item {
+  0% {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid var(--color-point-1);
+  }
+  35% {
+    width: 50px;
+    height: 50px;
+  }
+  100% {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid var(--color-point-1);
+    padding: 20px;
+    width: 10%;
+    height: 10%;
+    color: var(--color-main-1);
+  }
+}
+
+@keyframes to-left {
+  0% {
+    border: 3px solid var(--color-point-1);
+  }
+  70% {
+    width: 5%;
+    height: 10%;
+    left: 45%;
+  }
+  90% {
+    left: 28%;
+  }
+  100% {
+    opacity: 1;
+    left: 30%;
+    border: 3px solid var(--color-point-1);
+    padding: 20px;
+    width: 10%;
+    height: 10%;
+    color: var(--color-main-1);
+  }
+}
+@keyframes to-right {
+  0% {
+    z-index: 1;
+    border: 3px solid var(--color-point-1);
+  }
+  70% {
+    width: 5%;
+    height: 10%;
+    right: 45%;
+  }
+  90% {
+    right: 28%;
+  }
+  100% {
+    z-index: 1;
+    opacity: 1;
+    right: 30%;
+    border: 3px solid var(--color-point-1);
+    padding: 20px;
+    width: 10%;
+    height: 10%;
+    color: var(--color-main-1);
   }
 }
 
