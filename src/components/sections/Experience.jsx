@@ -105,55 +105,70 @@ const ItemWrapper = styled.div`
   border: 1px solid var(--color-point-3);
 `;
 const LeftContents = styled.div`
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
   width: 50%;
   height: 100%;
-  right: 55%;
 `;
 const ImageBox = styled.div`
+  position: absolute;
   width: 50%;
-  height: 60%;
   min-width: 500px;
+  height: 90%;
+  left: 50%;
+  top: 0%;
   align-self: flex-end;
 `;
-const Contents = styled.div`
+const ContentsBox = styled.div`
   position: absolute;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   height: 100%;
-  width: 30%;
-  padding: 50px;
+  width: 40%;
+  min-width: 400px;
+  padding: 100px;
   top: 0;
-  left: 50%;
-  border: 4px solid var(--color-point-1);
+  right: 50%;
+  /* border: 4px solid var(--color-point-1); */
+`;
+const Title = styled.div`
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 50px;
+`;
+const Period = styled.div`
+  font-size: 15px;
+  color: #bdbdbd;
+`;
+const Contents = styled.div`
+  font-size: 18px;
+  color: #bdbdbd;
 `;
 
 function ExperienceItem(props) {
   console.log('rerender');
   return (
     <div className="ExperienceItem">
-      <LeftContents>
-        <div className="title">{props.title}</div>
-        <div className="period">
+      <ContentsBox>
+        <Period>
           {props.period.start === ''
             ? props.period.end
             : props.period.start + '~' + props.period.end}
-        </div>
-        <ImageBox
-          style={{
-            backgroundImage: `url(${props.img})`,
-            backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat',
-          }}
-        ></ImageBox>
-      </LeftContents>
-
-      <Contents>{props.contents}</Contents>
+        </Period>
+        <Title>{props.title}</Title>
+        <Contents>{props.contents}</Contents>
+      </ContentsBox>
+      <ImageBox
+        style={{
+          backgroundImage: `url(${props.img})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
+      ></ImageBox>
     </div>
   );
 }
