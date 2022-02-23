@@ -2,6 +2,7 @@ import { useState } from 'react';
 import React from 'react';
 import Modal from './ProjectSlide/Modal';
 import Slider from './ProjectSlide/Slider';
+import styled from 'styled-components';
 const slideData = [
   {
     index: 0,
@@ -69,6 +70,22 @@ const slideData = [
   },
 ];
 
+const Cover = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  color: white;
+  font-weight: 700;
+  font-size: 48px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+  opacity: 0.8;
+  z-index: 3;
+`;
+
 function ProjectTemp() {
   const [modalState, setModalState] = useState(false);
   const showModal = () => {
@@ -87,6 +104,7 @@ function ProjectTemp() {
 
   return (
     <div className="ProjectTemp" id="Projects">
+      <Cover>[미완성] 진행중입니다.</Cover>
       <Slider
         heading="Example Slider"
         slides={slideData}
