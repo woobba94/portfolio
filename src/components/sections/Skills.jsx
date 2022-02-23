@@ -99,7 +99,7 @@ function Skills() {
       setSkillsFlag(true);
       setTimeout(setProgress, 2000);
       setTimeout(fadeOn, 2000);
-      iconWrap.current.classList.add('unfold-icon');
+      iconWrap.current.classList.add('unfoldSkills');
       skillsAnimationBox.current.classList.add('animation-box');
     }
   }, [scrollPercentage]);

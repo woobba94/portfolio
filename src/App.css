@@ -417,10 +417,10 @@ a {
   }
 }
 
-.onCircle {
-  animation: on-circle 2s linear forwards;
+.unfoldSkills {
+  animation: unfold-skills 2s linear forwards;
 }
-@keyframes on-circle {
+@keyframes unfold-skills {
   0% {
     opacity: 1;
     border: 5px solid var(--color-point-1);
