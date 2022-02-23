@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+import { ScrollContext } from '../../context/ScrollContext';
 const myExperienceData = {
   0: {
     title: `
@@ -29,7 +30,7 @@ const myExperienceData = {
     이 경험을 통해 깨끗한 코드를 작성하는 이유를 절실하게 느꼈고, 코드의 상태는 마감기한 준수와 시스템 성능에 직결적인 역할을 한다고 생각하였습니다.
     지저분한 코드에서는 작은 기능에서도 눈에 보이지 않는 문제가 발생할 것이고 팀원과의 소통에서도 문제가 발생할 것입니다. 
     저는 크고 작은 알고리즘 문제에서 코드 가독성 개선에 많은 시간을 할애하여 좋은 코드 작성을 위해 꾸준히 노력해왔습니다. 
-    저는 앞으로 이 클린코드를 작성하는 능력을 더욱 발현하여 같이 일하게 될 분들과 최선의 결과를 만들고 싶습니다.
+    이 경험을 토대로 클린코드를 작성하기 위해 더욱 노력하여 같이 일하게 될 분들과 최선의 결과를 만들고 싶습니다.
     `,
     period: {
       start: '',
@@ -57,7 +58,7 @@ const myExperienceData = {
     문제 해결 능력은 개발에 필요한 기본역량이라고 생각합니다.
     백준 알고리즘 사이트에서 다양한 접근법을 통해 문제를 해결하며 진정한 끈기를 배웠습니다.
     그리고 최적의 방법을 찾는것은 많은 노력이 필요하다는것을 알게 되었습니다. 
-    이 문제를 해결하는 집념을 통해 새로운 기능에도 알맞은 구현을 하는 개발자가 되겠습니다.
+    앞으로도 문제를 해결하는 집념을 통해 새로운 문제를 마주했을 때 최적의 방법을 찾는 개발자가 되겠습니다.
     `,
     period: {
       start: '210628',
@@ -86,14 +87,14 @@ const ButtonWrap = styled.div`
   transform: translateX(-50%);
 `;
 const Button = styled.div`
-  height: 50px;
-  width: 50px;
+  height: 20px;
+  width: 20px;
   background-color: var(--color-main-3);
   border-radius: 100%;
-  border: 4px solid var(--color-point-1);
+  border: 3px solid var(--color-point-1);
   &:hover {
     background-color: var(--color-point-1);
-    transform: scale(1.1);
+    transform: scale(1.3);
   }
   transition: all 0.5s;
   cursor: pointer;
@@ -103,14 +104,6 @@ const ItemWrapper = styled.div`
   position: absolute;
   width: 100%;
   border: 1px solid var(--color-point-3);
-`;
-const LeftContents = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  width: 50%;
-  height: 100%;
 `;
 const ImageBox = styled.div`
   position: absolute;
@@ -126,13 +119,14 @@ const ContentsBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: flex-start;
   height: 100%;
   width: 40%;
   min-width: 400px;
   padding: 100px;
   top: 0;
   right: 50%;
+  color: var(--color-main-3);
   /* border: 4px solid var(--color-point-1); */
 `;
 const Title = styled.div`
@@ -142,15 +136,14 @@ const Title = styled.div`
 `;
 const Period = styled.div`
   font-size: 15px;
-  color: #bdbdbd;
+  color: #999999;
 `;
 const Contents = styled.div`
   font-size: 18px;
-  color: #bdbdbd;
+  color: #555555;
 `;
 
 function ExperienceItem(props) {
-  console.log('rerender');
   return (
     <div className="ExperienceItem">
       <ContentsBox>
@@ -174,14 +167,21 @@ function ExperienceItem(props) {
 }
 
 function Experience() {
+  const scrollPercentage = useContext(ScrollContext);
+  let flag = useRef(false);
   const buttonWrapRef = useRef();
   const [target, setTarget] = useState();
+  useEffect(() => {
+    if (!flag.current && scrollPercentage > 0.529) {
+      flag.current = true;
+      buttonWrapRef.current.firstChild.click();
+    }
+  }, [scrollPercentage]);
   function targetHandler(index) {
     for (let i = 0; i < buttonWrapRef.current.children.length; i++) {
       if (index === i) buttonWrapRef.current.children[i].style.background = 'var(--color-point-1)';
       else buttonWrapRef.current.children[i].style.background = 'var(--color-main-3)';
     }
-
     setTarget(index);
   }
   return (
@@ -193,7 +193,7 @@ function Experience() {
         <Button onClick={() => targetHandler(3)}></Button>
         <Button onClick={() => targetHandler(4)}></Button>
       </ButtonWrap>
-      {target != undefined && <ExperienceItem {...myExperienceData[target]} style={ItemWrapper} />}
+      {target !== undefined && <ExperienceItem {...myExperienceData[target]} style={ItemWrapper} />}
     </div>
   );
 }
