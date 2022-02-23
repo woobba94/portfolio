@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { ScrollContext } from '../context/ScrollContext';
 const ButtonWrap = styled.div`
   height: 100%;
@@ -7,7 +7,7 @@ const ButtonWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 3;
+  z-index: 5;
   opacity: 0;
   transform: translateX(-100px);
   mix-blend-mode: difference;
@@ -35,11 +35,11 @@ const Button = styled.div`
 // `;
 
 function NavBar() {
-  const [navFlag, setNavFlag] = useState(false);
   const [childStates, setChildStates] = useState([true, false, false, false, false]);
   const scrollPercentage = useContext(ScrollContext);
   const buttonWrap = useRef();
   const beforeTarget = useRef(0);
+  let navFlag = useRef(false);
   function open() {
     buttonWrap.current.style.animation = 'openNav .5s linear forwards';
   }
@@ -56,13 +56,13 @@ function NavBar() {
     beforeTarget.current = target;
   }
   useEffect(() => {
-    if (!navFlag && scrollPercentage > 0.13) {
+    if (!navFlag.current && scrollPercentage > 0.13) {
       console.log('navBar open');
-      setNavFlag(true);
+      navFlag.current = true;
       open();
-    } else if (navFlag && scrollPercentage <= 0.13) {
+    } else if (navFlag.current && scrollPercentage <= 0.13) {
       console.log('navBar close');
-      setNavFlag(false);
+      navFlag.current = false;
       close();
     }
     if (scrollPercentage > 0.91) {
