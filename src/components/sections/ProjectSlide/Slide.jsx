@@ -1,18 +1,29 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 import React from 'react';
-function Slide(props) {
-  // console.log(props);
-  let count = 15;
-  const [slide, setSlide] = useState(React.createRef());
+import SlideContents from './SlideContents';
+import styled from 'styled-components';
 
+const Headline = styled.h1`
+  opacity: ${(props) => props.isOpen && '0'};
+  transition: all 0.5s;
+`;
+function Slide(props) {
+  let delay = 10;
+  let slide = useRef();
   const handleMouseMove = (event) => {
-    count--;
-    if (!count) {
+    delay--;
+    if (!delay) {
       const el = slide.current;
       const r = el.getBoundingClientRect();
-      el.style.setProperty('--x', event.clientX - (r.left + Math.floor(r.width / 2)));
-      el.style.setProperty('--y', event.clientY - (r.top + Math.floor(r.height / 2)));
-      count = 15;
+      el.style.setProperty(
+        '--x',
+        event.clientX - (r.left + Math.floor(r.width / 2))
+      );
+      el.style.setProperty(
+        '--y',
+        event.clientY - (r.top + Math.floor(r.height / 2))
+      );
+      delay = 10;
     }
   };
 
@@ -36,23 +47,37 @@ function Slide(props) {
   if (current === index) classNames += ' slide--current';
   else if (current - 1 === index) classNames += ' slide--previous';
   else if (current + 1 === index) classNames += ' slide--next';
-
   return (
-    <li
-      ref={slide}
-      className={classNames}
-      onClick={handleSlideClick}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div className="slide__image-wrapper">
-        <img className="slide__image" alt={headline} src={src} onLoad={imageLoaded} />
-      </div>
-
-      <article className="slide__content">
-        <h2 className="slide__headline">{headline}</h2>
-      </article>
-    </li>
+    <>
+      <li
+        ref={slide}
+        className={classNames}
+        onClick={handleSlideClick}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="slide__image-wrapper">
+          <img
+            className="slide__image"
+            alt={headline}
+            src={src}
+            onLoad={imageLoaded}
+          />
+          <SlideContents
+            isOpen={props.isOpen[props.slide.index]}
+            modalData={props.slide.contents}
+          />
+        </div>
+        <article className="slide__content">
+          <Headline
+            isOpen={props.isOpen[props.slide.index]}
+            className="slide__headline"
+          >
+            {headline}
+          </Headline>
+        </article>
+      </li>
+    </>
   );
 }
 
