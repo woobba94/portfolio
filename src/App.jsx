@@ -1,9 +1,8 @@
 import './App.css';
-import { Body } from './components/index';
-import GreetingsLine from './components/GreetingsLine';
-import CenterLine from './components/CenterLine';
 import React, { useState, useEffect } from 'react';
 import { ScrollContext } from './context/ScrollContext';
+import Body from './components/Body';
+import CenterLine from './components/CenterLine';
 import NavBar from './components/NavBar';
 
 function App() {
@@ -15,7 +14,8 @@ function App() {
     const handleScroll = () => {
       setScrollPercentage(
         window.pageYOffset /
-          (document.documentElement.scrollHeight - document.documentElement.clientHeight)
+          (document.documentElement.scrollHeight -
+            document.documentElement.clientHeight)
       );
     };
     window.addEventListener('scroll', handleScroll);
@@ -29,7 +29,6 @@ function App() {
       <div className="App">
         <NavBar />
         <CenterLine />
-        <GreetingsLine />
         <Body />
       </div>
     </ScrollContext.Provider>
