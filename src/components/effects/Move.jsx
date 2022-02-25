@@ -1,4 +1,4 @@
-function Move({ direction, rate, children, addClass }) {
+function Move({ direction, rate, children }) {
   let pos = window.pageYOffset * rate;
   if (direction === 'up') {
     pos *= -1;
@@ -6,7 +6,7 @@ function Move({ direction, rate, children, addClass }) {
 
   return (
     <div
-      className={`Move ${addClass}`}
+      className={`Move`}
       style={{ transform: 'translate3d(0px, ' + pos + 'px, 0px)' }}
     >
       {children}
