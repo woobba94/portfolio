@@ -86,30 +86,6 @@ a {
   right: 0;
 }
 
-/* Sections */
-.Intro {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  background: var(--color-main-3);
-  /* background: #fff; */
-}
-.Intro .canvas-wrap {
-  height: 50%;
-  width: 100%;
-  position: absolute;
-  background: #fff;
-}
-.Intro .canvas-wrap canvas {
-  height: fit-content;
-  width: fit-content;
-  position: absolute;
-  left: 50%;
-  bottom: 0%;
-  transform: translate(-50%, 0%);
-  background: #fff;
-}
-
 /* .Intro .hourglass {
   overflow: hidden;
   position: relative;
@@ -156,119 +132,15 @@ a {
   object-fit: cover;
   z-index: 0;
 } */
-.Intro .left {
-  position: absolute;
-  height: fit-content;
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  color: var(--color-main-1);
-  mix-blend-mode: difference;
-  margin: 200px 0 0 100px;
-  font-size: 36px;
-  font-weight: 700;
-}
-.Intro .right {
-  height: 100%;
-}
-.Intro .shadow {
-  position: absolute;
-  top: 10%;
-  left: 8%;
-  height: fit-content;
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  color: rgba(255, 255, 255, 0.05);
-  mix-blend-mode: difference;
-  font-size: 48px;
-  font-weight: 900;
-}
 
-.Greetings {
-  position: relative;
-  /* background: linear-gradient(to bottom, var(--color-main-2), var(--color-main-3)); */
-  height: 100%;
-  width: 100%;
-  background-color: var(--color-main-1);
-}
-.Greetings .greetingsContent {
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  width: 35vw;
-  padding: 50px;
-  color: var(--color-main-3);
-  transform: translate(0%, -50%);
-}
-.Greetings .greetingsContent .contentTitle {
-  font-weight: 700;
-  font-size: 36px;
-  color: var(--color-main-3);
-}
-.Greetings .right {
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  height: 80%;
-  background: url(./components/sections/Greetings-img.jpg) no-repeat;
-  background-size: cover;
-  width: 0%;
-}
+/* About */
 
-.Skills {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-.Skills .skills-wrap {
-  height: 0%;
-  width: 0%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
-  padding: 0;
-  border: none;
-  border-radius: 30px;
-  background-color: var(--color-main-3);
-  color: var(--color-main-1);
-  z-index: 2;
-  overflow: hidden;
-}
-.Skills .skills-wrap .Skill {
-  opacity: 0;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100px;
-  width: 100%;
-  font-size: 20px;
-  position: relative;
-}
-
-.Skill .circle-progress {
+/* Tech Stack */
+.circle-progress {
   width: 60px;
   position: absolute;
 }
-.skill-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 70px;
-  width: 70px;
-  position: relative;
-}
-.skill-logo .progressbar-text {
+.progressbar-text {
   position: absolute;
   top: -12px;
   right: -30px;
@@ -276,85 +148,9 @@ a {
   color: var(--color-point-1);
   font-weight: 900;
 }
-.skill-content {
-  margin-left: 30px;
-}
-.Skills .skills-wrap .Skill i {
-  font-size: 36px;
-  position: absolute;
-}
-.Skills .skills-wrap .Skill svg {
-  height: 100%;
-  width: 50px;
-  position: absolute;
-}
-.Skills .devicon-html5-plain {
-  color: #e44d26;
-}
-.Skills .devicon-css3-plain {
-  color: #2965f1;
-}
-.Skills .devicon-javascript-plain {
-  color: #f0db4f;
-}
-.Skills .devicon-react-original {
-  color: #61dbfb;
-}
-.Skills .devicon-cplusplus-plain {
-  color: #9c033a;
-}
-.Skills .devicon-python-plain {
-  color: #ffd845;
-}
-.Skills .devicon-github-original {
-  color: var(--color-main-1);
-}
+/* Experience */
 
-.Skills .animation-box {
-  position: absolute;
-  width: 0%;
-  height: 0%;
-  border-radius: 100%;
-  animation: skillsAnimationBox 1s linear forwards;
-}
-
-.Experience {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.Experience .Tab {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  height: 70%;
-  width: 50%;
-  background-color: none;
-}
-.Experience .Tab .title {
-  position: relative;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 2;
-}
-.Experience .Tab .title button {
-  height: 80px;
-  width: 25%;
-}
-.Experience .Tab .contents {
-  margin: 0 0 0 20px;
-}
-.Experience .left {
-  width: 50%;
-  right: 50%;
-}
-.Experience .right {
-  width: 50%;
-  left: 50%;
-}
-
+/* Projects */
 .Projects {
 }
 .ProjectTemp {
