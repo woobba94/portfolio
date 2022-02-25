@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { ScrollContext } from '../../context/ScrollContext';
+import { ScrollContext } from '../../../context/ScrollContext';
 
 const ContactWrap = styled.div`
   position: relative;
@@ -45,7 +45,8 @@ function Contact() {
   const items = useRef();
   function onItem(target) {
     if (target === 'center') {
-      items.current.children[1].style.animation = 'on-contact-item 1s linear forwards';
+      items.current.children[1].style.animation =
+        'on-contact-item 1s linear forwards';
     } else if (target === 'left') {
       items.current.children[0].style.animation = 'to-left 2s linear forwards';
     } else {
