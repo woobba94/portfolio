@@ -22,7 +22,8 @@ const Button = styled.div`
   width: fit-content;
   cursor: pointer;
   font-weight: 700;
-  transform: ${(props) => (props.active ? 'translateX(0px)' : 'translateX(-100px)')};
+  transform: ${(props) =>
+    props.active ? 'translateX(0px)' : 'translateX(-100px)'};
   transition: all 0.4s;
   &:hover {
     background-color: var(--color-point-1);
@@ -35,7 +36,13 @@ const Button = styled.div`
 // `;
 
 function NavBar() {
-  const [childStates, setChildStates] = useState([true, false, false, false, false]);
+  const [childStates, setChildStates] = useState([
+    true,
+    false,
+    false,
+    false,
+    false,
+  ]);
   const scrollPercentage = useContext(ScrollContext);
   const buttonWrap = useRef();
   const beforeTarget = useRef(0);
@@ -83,7 +90,7 @@ function NavBar() {
       <a href="#Intro">
         <Button active={childStates[0]}>ABOUT ME</Button>
       </a>
-      <a href="#Skills">
+      <a href="#TechStack">
         <Button active={childStates[1]}>TECH STACK</Button>
       </a>
       <a href="#Experience">

@@ -1,11 +1,11 @@
-import Section from './Section';
+import Section from './Section/Section';
 
 function Body() {
   return (
     <div className="Body">
       <Section name="Intro" />
-      <Section name="Greetings" />
-      <Section name="Skills" />
+      <Section name="About" />
+      <Section name="TechStack" />
       <Section name="Experience" />
       <Section name="Projects" />
       <Section name="Contact" />
