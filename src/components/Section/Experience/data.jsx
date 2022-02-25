@@ -1,7 +1,8 @@
-import { useContext, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-import { ScrollContext } from '../../context/ScrollContext';
-const myExperienceData = {
+import imgURL_university from './image/university_portfolio.jpg';
+import imgURL_competition from './image/competition_portfolio.jpg';
+import imgURL_certificate from './image/certificate_portfolio.jpg';
+import imgURL_backjoon from './image/backjoon_portfolio.jpg';
+const data = {
   0: {
     title: `
     금오공과대학교
@@ -17,7 +18,7 @@ const myExperienceData = {
       start: '120302',
       end: '210820',
     },
-    img: require('./university_portfolio.jpg'),
+    img: imgURL_university,
   },
   1: {
     title: '국어정보처리시스템 경진대회 동상 수상',
@@ -36,7 +37,7 @@ const myExperienceData = {
       start: '',
       end: '181012',
     },
-    img: require('./competition_portfolio.jpg'),
+    img: imgURL_competition,
   },
   2: {
     title: '정보처리기사 취득',
@@ -50,7 +51,7 @@ const myExperienceData = {
       start: '',
       end: '210602',
     },
-    img: require('./certificate_portfolio.jpg'),
+    img: imgURL_certificate,
   },
   3: {
     title: '알고리즘 공부',
@@ -64,7 +65,7 @@ const myExperienceData = {
       start: '210628',
       end: '211011',
     },
-    img: require('./backjoon_portfolio.jpg'),
+    img: imgURL_backjoon,
   },
   4: {
     title: '멋쟁이사자처럼 프론트엔드스쿨',
@@ -75,126 +76,5 @@ const myExperienceData = {
     },
   },
 };
-const ButtonWrap = styled.div`
-  position: absolute;
-  display: flex;
-  height: 100%;
-  width: fit-content;
-  flex-direction: column;
-  justify-content: space-evenly;
-  z-index: 1;
-  left: 50%;
-  transform: translateX(-50%);
-`;
-const Button = styled.div`
-  height: 20px;
-  width: 20px;
-  background-color: var(--color-main-3);
-  border-radius: 100%;
-  border: 3px solid var(--color-point-1);
-  &:hover {
-    background-color: var(--color-point-1);
-    transform: scale(1.3);
-  }
-  transition: all 0.5s;
-  cursor: pointer;
-`;
 
-const ItemWrapper = styled.div`
-  position: absolute;
-  width: 100%;
-  border: 1px solid var(--color-point-3);
-`;
-const ImageBox = styled.div`
-  position: absolute;
-  width: 50%;
-  min-width: 500px;
-  height: 90%;
-  left: 50%;
-  top: 0%;
-  align-self: flex-end;
-`;
-const ContentsBox = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  height: 100%;
-  width: 40%;
-  min-width: 400px;
-  padding: 100px;
-  top: 0;
-  right: 50%;
-  color: var(--color-main-3);
-  /* border: 4px solid var(--color-point-1); */
-`;
-const Title = styled.div`
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 50px;
-`;
-const Period = styled.div`
-  font-size: 15px;
-  color: #999999;
-`;
-const Contents = styled.div`
-  font-size: 18px;
-  color: #555555;
-`;
-
-function ExperienceItem(props) {
-  return (
-    <div className="ExperienceItem">
-      <ContentsBox>
-        <Period>
-          {props.period.start === ''
-            ? props.period.end
-            : props.period.start + '~' + props.period.end}
-        </Period>
-        <Title>{props.title}</Title>
-        <Contents>{props.contents}</Contents>
-      </ContentsBox>
-      <ImageBox
-        style={{
-          backgroundImage: `url(${props.img})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-        }}
-      ></ImageBox>
-    </div>
-  );
-}
-
-function Experience() {
-  const scrollPercentage = useContext(ScrollContext);
-  let flag = useRef(false);
-  const buttonWrapRef = useRef();
-  const [target, setTarget] = useState();
-  useEffect(() => {
-    if (!flag.current && scrollPercentage > 0.529) {
-      flag.current = true;
-      buttonWrapRef.current.firstChild.click();
-    }
-  }, [scrollPercentage]);
-  function targetHandler(index) {
-    for (let i = 0; i < buttonWrapRef.current.children.length; i++) {
-      if (index === i) buttonWrapRef.current.children[i].style.background = 'var(--color-point-1)';
-      else buttonWrapRef.current.children[i].style.background = 'var(--color-main-3)';
-    }
-    setTarget(index);
-  }
-  return (
-    <div className="Experience" id="Experience">
-      <ButtonWrap ref={buttonWrapRef}>
-        <Button onClick={() => targetHandler(0)}></Button>
-        <Button onClick={() => targetHandler(1)}></Button>
-        <Button onClick={() => targetHandler(2)}></Button>
-        <Button onClick={() => targetHandler(3)}></Button>
-        <Button onClick={() => targetHandler(4)}></Button>
-      </ButtonWrap>
-      {target !== undefined && <ExperienceItem {...myExperienceData[target]} style={ItemWrapper} />}
-    </div>
-  );
-}
-export default Experience;
+export default data;
