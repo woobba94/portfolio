@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import React from 'react';
-import SlideContents from './SlideContents';
+import ClickContents from './ClickContents';
 import styled from 'styled-components';
 
 const Headline = styled.h1`
@@ -63,7 +63,7 @@ function Slide(props) {
             src={src}
             onLoad={imageLoaded}
           />
-          <SlideContents
+          <ClickContents
             isOpen={props.isOpen[props.slide.index]}
             modalData={props.slide.contents}
           />

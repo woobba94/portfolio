@@ -23,7 +23,7 @@ const Title = styled.div`
   font-size: 24px;
 `;
 
-const SlideContents = ({ isOpen, modalData }) => {
+const ClickContents = ({ isOpen, modalData }) => {
   return (
     <Contents isOpen={isOpen}>
       <Title>{modalData.title}</Title>
@@ -37,4 +37,4 @@ const SlideContents = ({ isOpen, modalData }) => {
   );
 };
 
-export default SlideContents;
+export default ClickContents;

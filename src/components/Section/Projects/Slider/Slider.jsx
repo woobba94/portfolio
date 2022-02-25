@@ -1,7 +1,7 @@
-import Modal from 'antd/lib/modal/Modal';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import Slide from './Slide';
-import SliderControl from './SliderControl';
+import Controller from './Controller';
+
 function Slider(props) {
   const [current, setCurrent] = useState(0);
   const [isOpen, setIsOpen] = useState([false, false, false, false, false]);
@@ -55,13 +55,13 @@ function Slider(props) {
       </ul>
 
       <div className="slider__controls">
-        <SliderControl
+        <Controller
           type="previous"
           title="이전 슬라이드"
           handleClick={handlePreviousClick}
         />
 
-        <SliderControl
+        <Controller
           type="next"
           title="다음 슬라이드"
           handleClick={handleNextClick}

@@ -1,4 +1,4 @@
-const SliderControl = ({ type, title, handleClick }) => {
+const Controller = ({ type, title, handleClick }) => {
   return (
     <button className={`btn btn--${type}`} title={title} onClick={handleClick}>
       <svg className="icon" viewBox="0 0 24 24">
@@ -8,4 +8,4 @@ const SliderControl = ({ type, title, handleClick }) => {
   );
 };
 
-export default SliderControl;
+export default Controller;
