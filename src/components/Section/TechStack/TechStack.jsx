@@ -86,7 +86,7 @@ function TechStack() {
 
   useEffect(() => {
     if (!skillsFlag && scrollPercentage > 0.31) {
-      console.log('skillsFlag');
+      // console.log('skillsFlag');
       setSkillsFlag(true);
       setTimeout(setProgress, 2000);
       setTimeout(fadeOn, 2000);

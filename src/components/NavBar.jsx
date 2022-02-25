@@ -64,11 +64,11 @@ function NavBar() {
   }
   useEffect(() => {
     if (!navFlag.current && scrollPercentage > 0.13) {
-      console.log('navBar open');
+      // console.log('navBar open');
       navFlag.current = true;
       open();
     } else if (navFlag.current && scrollPercentage <= 0.13) {
-      console.log('navBar close');
+      // console.log('navBar close');
       navFlag.current = false;
       close();
     }

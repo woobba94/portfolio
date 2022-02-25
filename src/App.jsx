@@ -6,7 +6,6 @@ import CenterLine from './components/CenterLine';
 import NavBar from './components/NavBar';
 
 function App() {
-  console.log('App 렌더링');
   // 스크롤 퍼센트 (0 ~ 1)
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
