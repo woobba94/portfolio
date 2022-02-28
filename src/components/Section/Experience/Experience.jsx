@@ -26,23 +26,27 @@ const Button = styled.div`
   background-color: var(--color-main-3);
   border-radius: 100%;
   border: 3px solid var(--color-point-1);
-  &:hover {
-    background-color: var(--color-point-1);
-    transform: scale(1.3);
-  }
-  transition: all 0.5s;
-  cursor: pointer;
+  transition: all 0.3s;
 `;
-const ItemWrapper = styled.div`
-  position: absolute;
-  width: 100%;
-  border: 1px solid var(--color-point-3);
+const ButtonBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  cursor: pointer;
+  &:hover ${Button} {
+    background-color: var(--color-point-1);
+    transform: scale(1.5);
+  }
 `;
 
 function Experience() {
   const scrollPercentage = useContext(ScrollContext);
   let flag = useRef(false);
   const buttonWrapRef = useRef();
+  const itemWrapRef = useRef();
   const [target, setTarget] = useState();
   useEffect(() => {
     if (!flag.current && scrollPercentage > 0.529) {
@@ -52,25 +56,45 @@ function Experience() {
   }, [scrollPercentage]);
   function targetHandler(index) {
     for (let i = 0; i < buttonWrapRef.current.children.length; i++) {
-      if (index === i)
-        buttonWrapRef.current.children[i].style.background =
+      if (index === i) {
+        buttonWrapRef.current.children[i].firstChild.style.background =
           'var(--color-point-1)';
-      else
-        buttonWrapRef.current.children[i].style.background =
+        itemWrapRef.current.children[i].style.opacity = '1';
+      } else {
+        buttonWrapRef.current.children[i].firstChild.style.background =
           'var(--color-main-3)';
+        itemWrapRef.current.children[i].style.opacity = '0';
+      }
     }
     setTarget(index);
   }
   return (
     <Wrapper id="Experience">
       <ButtonWrap ref={buttonWrapRef}>
-        <Button onClick={() => targetHandler(0)}></Button>
-        <Button onClick={() => targetHandler(1)}></Button>
-        <Button onClick={() => targetHandler(2)}></Button>
-        <Button onClick={() => targetHandler(3)}></Button>
-        <Button onClick={() => targetHandler(4)}></Button>
+        <ButtonBox onClick={() => targetHandler(0)}>
+          <Button />
+        </ButtonBox>
+        <ButtonBox onClick={() => targetHandler(1)}>
+          <Button />
+        </ButtonBox>
+        <ButtonBox onClick={() => targetHandler(2)}>
+          <Button />
+        </ButtonBox>
+        <ButtonBox onClick={() => targetHandler(3)}>
+          <Button />
+        </ButtonBox>
+        <ButtonBox onClick={() => targetHandler(4)}>
+          <Button />
+        </ButtonBox>
       </ButtonWrap>
-      {target !== undefined && <Item {...data[target]} style={ItemWrapper} />}
+      <div ref={itemWrapRef}>
+        <Item {...data[0]} />
+        <Item {...data[1]} />
+        <Item {...data[2]} />
+        <Item {...data[3]} />
+        <Item {...data[4]} />
+      </div>
+      {/* {target !== undefined && <Item {...data[target]} style={ItemWrapper} />} */}
     </Wrapper>
   );
 }

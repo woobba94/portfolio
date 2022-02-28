@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+const Wrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--color-point-3);
+  opacity: 0;
+`;
 const ImageBox = styled.div`
   position: absolute;
   width: 50%;
@@ -39,7 +46,7 @@ const Contents = styled.div`
 `;
 function Item(props) {
   return (
-    <>
+    <Wrapper>
       <ContentsBox>
         <Period>
           {props.period.start === ''
@@ -55,8 +62,8 @@ function Item(props) {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
         }}
-      ></ImageBox>
-    </>
+      />
+    </Wrapper>
   );
 }
 
