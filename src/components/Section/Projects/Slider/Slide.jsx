@@ -20,7 +20,7 @@ function Slide(props) {
   };
 
   const imageLoaded = (event) => {
-    event.target.style.opacity = 0;
+    event.target.style.opacity = 1;
   };
 
   const { src, headline, index } = props.slide;
