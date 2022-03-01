@@ -11,7 +11,7 @@ const data = [
       contribution: '(개인프로젝트)',
       takeaway:
         'React의 학습을 위해 만든 프로젝트입니다. 여러 인터렉티브한 효과를 배웠으며, 코드 재사용성과 유지보수를 위한 구조적 고민을 많이 했던 프로젝트입니다.',
-      releaseLink: '현재 보고계신 페이지 입니다.',
+      releaseLink: 'https://woobba.site/',
       githubLink: 'https://github.com/woobba94/portfolio',
     },
   },
@@ -28,7 +28,7 @@ const data = [
         '유저 검색 기능 | 유저 팔로우, 언팔로우 기능 | 팔로잉, 팔로워 리스트 | 판매상품 등록, 수정',
       takeaway:
         '협업을 통해 Git을 좀 더 유연하게 다루게 되었고 팀원끼리 이슈를 공유하여 함께 문제를 해결하는 과정을 경험한 프로젝트입니다. API를 이용하여 받은 데이터를 잘 뿌리는 것에 집중했던 것이 기억에 남습니다.',
-      releaseLink: '-',
+      releaseLink: 'https://market-52.herokuapp.com/',
       githubLink: 'https://github.com/woobba94/52market',
     },
   },

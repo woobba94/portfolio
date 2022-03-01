@@ -8,24 +8,7 @@ const Headline = styled.h1`
   transition: all 0.5s;
 `;
 function Slide(props) {
-  let delay = 10;
   let slide = useRef();
-  const handleMouseMove = (event) => {
-    delay--;
-    if (!delay) {
-      const el = slide.current;
-      const r = el.getBoundingClientRect();
-      el.style.setProperty(
-        '--x',
-        event.clientX - (r.left + Math.floor(r.width / 2))
-      );
-      el.style.setProperty(
-        '--y',
-        event.clientY - (r.top + Math.floor(r.height / 2))
-      );
-      delay = 10;
-    }
-  };
 
   const handleMouseLeave = (event) => {
     slide.current.style.setProperty('--x', 0);
@@ -37,7 +20,7 @@ function Slide(props) {
   };
 
   const imageLoaded = (event) => {
-    event.target.style.opacity = 1;
+    event.target.style.opacity = 0;
   };
 
   const { src, headline, index } = props.slide;
@@ -53,7 +36,6 @@ function Slide(props) {
         ref={slide}
         className={classNames}
         onClick={handleSlideClick}
-        onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
         <div className="slide__image-wrapper">
@@ -68,6 +50,7 @@ function Slide(props) {
             modalData={props.slide.contents}
           />
         </div>
+
         <article className="slide__content">
           <Headline
             isOpen={props.isOpen[props.slide.index]}
