@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ScrollContext } from './context/ScrollContext';
 import Body from './components/Body';
 import CenterLine from './components/CenterLine';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
   // 스크롤 퍼센트 (0 ~ 1)

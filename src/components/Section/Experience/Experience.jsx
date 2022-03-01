@@ -1,46 +1,8 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { ScrollContext } from '../../../context/ScrollContext';
-import styled from 'styled-components';
+import * as Styled from './styled';
 import data from './data';
-import Item from './Item';
-
-const Wrapper = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-`;
-const ButtonWrap = styled.div`
-  position: absolute;
-  display: flex;
-  height: 100%;
-  width: fit-content;
-  flex-direction: column;
-  justify-content: space-evenly;
-  z-index: 1;
-  left: 50%;
-  transform: translateX(-50%);
-`;
-const Button = styled.div`
-  height: 20px;
-  width: 20px;
-  background-color: var(--color-main-3);
-  border-radius: 100%;
-  border: 3px solid var(--color-point-1);
-  transition: all 0.3s;
-`;
-const ButtonBox = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  width: 100px;
-  border-radius: 100%;
-  cursor: pointer;
-  &:hover ${Button} {
-    background-color: var(--color-point-1);
-    transform: scale(1.5);
-  }
-`;
+import Item from './Item/Item';
 
 function Experience() {
   const scrollPercentage = useContext(ScrollContext);
@@ -62,31 +24,31 @@ function Experience() {
         itemWrapRef.current.children[i].style.opacity = '1';
       } else {
         buttonWrapRef.current.children[i].firstChild.style.background =
-          'var(--color-main-3)';
+          'var(--color-main-2)';
         itemWrapRef.current.children[i].style.opacity = '0';
       }
     }
     setTarget(index);
   }
   return (
-    <Wrapper id="Experience">
-      <ButtonWrap ref={buttonWrapRef}>
-        <ButtonBox onClick={() => targetHandler(0)}>
-          <Button />
-        </ButtonBox>
-        <ButtonBox onClick={() => targetHandler(1)}>
-          <Button />
-        </ButtonBox>
-        <ButtonBox onClick={() => targetHandler(2)}>
-          <Button />
-        </ButtonBox>
-        <ButtonBox onClick={() => targetHandler(3)}>
-          <Button />
-        </ButtonBox>
-        <ButtonBox onClick={() => targetHandler(4)}>
-          <Button />
-        </ButtonBox>
-      </ButtonWrap>
+    <Styled.Wrapper id="Experience">
+      <Styled.ButtonWrap ref={buttonWrapRef}>
+        <Styled.ButtonBox onClick={() => targetHandler(0)}>
+          <Styled.Button />
+        </Styled.ButtonBox>
+        <Styled.ButtonBox onClick={() => targetHandler(1)}>
+          <Styled.Button />
+        </Styled.ButtonBox>
+        <Styled.ButtonBox onClick={() => targetHandler(2)}>
+          <Styled.Button />
+        </Styled.ButtonBox>
+        <Styled.ButtonBox onClick={() => targetHandler(3)}>
+          <Styled.Button />
+        </Styled.ButtonBox>
+        <Styled.ButtonBox onClick={() => targetHandler(4)}>
+          <Styled.Button />
+        </Styled.ButtonBox>
+      </Styled.ButtonWrap>
       <div ref={itemWrapRef}>
         <Item {...data[0]} />
         <Item {...data[1]} />
@@ -95,7 +57,7 @@ function Experience() {
         <Item {...data[4]} />
       </div>
       {/* {target !== undefined && <Item {...data[target]} style={ItemWrapper} />} */}
-    </Wrapper>
+    </Styled.Wrapper>
   );
 }
 export default Experience;

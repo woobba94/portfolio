@@ -1,39 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-import { ScrollContext } from '../context/ScrollContext';
-const ButtonWrap = styled.div`
-  height: 100%;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 5;
-  opacity: 0;
-  transform: translateX(-100px);
-  mix-blend-mode: difference;
-`;
-
-const Button = styled.div`
-  background-color: var(--color-main-1);
-  margin: 10px 0;
-  height: fit-content;
-  padding: 20px 10px;
-  text-align: end;
-  width: fit-content;
-  cursor: pointer;
-  font-weight: 700;
-  transform: ${(props) =>
-    props.active ? 'translateX(0px)' : 'translateX(-100px)'};
-  transition: all 0.4s;
-  &:hover {
-    background-color: var(--color-point-1);
-    transform: translateX(0px);
-  }
-`;
-
-// const Active = styled.div`
-//   isolation: isolate;
-// `;
+import * as Styled from './styled';
+import { ScrollContext } from '../../context/ScrollContext';
 
 function NavBar() {
   const [childStates, setChildStates] = useState([
@@ -56,7 +23,6 @@ function NavBar() {
   function childStatesHandler(target) {
     // target이 전과 같을땐 state변경x
     if (beforeTarget.current === target) return;
-    // console.log('childStatesHandler');
     let newState = [false, false, false, false, false];
     newState[target] = true;
     setChildStates(newState);
@@ -64,11 +30,9 @@ function NavBar() {
   }
   useEffect(() => {
     if (!navFlag.current && scrollPercentage > 0.13) {
-      // console.log('navBar open');
       navFlag.current = true;
       open();
     } else if (navFlag.current && scrollPercentage <= 0.13) {
-      // console.log('navBar close');
       navFlag.current = false;
       close();
     }
@@ -86,23 +50,23 @@ function NavBar() {
   }, [scrollPercentage]);
 
   return (
-    <ButtonWrap className="NavBar" ref={buttonWrap}>
+    <Styled.ButtonWrap className="NavBar" ref={buttonWrap}>
       <a href="#Intro">
-        <Button active={childStates[0]}>ABOUT ME</Button>
+        <Styled.Button active={childStates[0]}>ABOUT ME</Styled.Button>
       </a>
       <a href="#TechStack">
-        <Button active={childStates[1]}>TECH STACK</Button>
+        <Styled.Button active={childStates[1]}>TECH STACK</Styled.Button>
       </a>
       <a href="#Experience">
-        <Button active={childStates[2]}>EXPERIENCE</Button>
+        <Styled.Button active={childStates[2]}>EXPERIENCE</Styled.Button>
       </a>
       <a href="#Projects">
-        <Button active={childStates[3]}>PROJECTS</Button>
+        <Styled.Button active={childStates[3]}>PROJECTS</Styled.Button>
       </a>
       <a href="#Contact">
-        <Button active={childStates[4]}>CONTACT ME</Button>
+        <Styled.Button active={childStates[4]}>CONTACT ME</Styled.Button>
       </a>
-    </ButtonWrap>
+    </Styled.ButtonWrap>
   );
 }
 export default NavBar;

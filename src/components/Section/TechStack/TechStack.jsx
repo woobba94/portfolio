@@ -1,43 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
 import { ScrollContext } from '../../../context/ScrollContext';
-import Item from './Item';
-
-const Wrapper = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-`;
-const ItemWrapper = styled.div`
-  height: 0%;
-  width: 0%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
-  padding: 0;
-  border: none;
-  border-radius: 30px;
-  background-color: var(--color-main-3);
-  color: var(--color-main-1);
-  z-index: 2;
-  overflow: hidden;
-  animation: ${(props) =>
-    props.skillsFlag && 'unfold-skills 2s linear forwards'};
-`;
-const BackgroundBox = styled.div`
-  position: absolute;
-  width: 0%;
-  height: 0%;
-  border-radius: 100%;
-  animation: ${(props) =>
-    props.skillsFlag && 'skillsAnimationBox 1s linear forwards'};
-`;
+import * as Styled from './styled';
+import Item from './Item/Item';
 
 function TechStack() {
   const [skillsFlag, setSkillsFlag] = useState(false);
@@ -94,9 +58,9 @@ function TechStack() {
   }, [scrollPercentage]);
 
   return (
-    <Wrapper id="TechStack">
-      <BackgroundBox skillsFlag={skillsFlag}></BackgroundBox>
-      <ItemWrapper skillsFlag={skillsFlag} ref={iconWrap}>
+    <Styled.Wrapper id="TechStack">
+      <Styled.BackgroundBox skillsFlag={skillsFlag}></Styled.BackgroundBox>
+      <Styled.ItemWrapper skillsFlag={skillsFlag} ref={iconWrap}>
         <Item skillName="html" />
         <Item skillName="css" />
         <Item skillName="javascript" />
@@ -104,8 +68,8 @@ function TechStack() {
         <Item skillName="cplusplus" />
         <Item skillName="python" />
         <Item skillName="github" />
-      </ItemWrapper>
-    </Wrapper>
+      </Styled.ItemWrapper>
+    </Styled.Wrapper>
   );
 }
 export default TechStack;

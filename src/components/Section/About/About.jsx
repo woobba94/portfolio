@@ -1,39 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { ScrollContext } from '../../../context/ScrollContext';
-import imgURL from './image/smile_about.jpg';
-
-const Wrapper = styled.div`
-  position: relative;
-  height: 100%;
-  width: 100%;
-  background-color: var(--color-main-1);
-`;
-const Contents = styled.div`
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  width: 35vw;
-  padding: 50px;
-  color: var(--color-main-3);
-  transform: translate(0%, -50%);
-`;
-const Title = styled.p`
-  font-weight: 700;
-  font-size: 36px;
-  color: var(--color-main-3);
-`;
-const ImageBox = styled.div`
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  height: 80%;
-  background: url(${imgURL}) no-repeat;
-  background-size: cover;
-  width: 0%;
-  animation: ${(props) =>
-    props.greetingFlag && 'fade-right 1s linear forwards'};
-`;
+import * as Styled from './styled';
 
 function About() {
   const scrollPercentage = useContext(ScrollContext);
@@ -46,9 +13,11 @@ function About() {
   }, [scrollPercentage]);
 
   return (
-    <Wrapper id="Intro">
-      <Contents>
-        <Title>안녕하세요. 주니어 프론트엔드 개발자 정우진입니다.</Title>
+    <Styled.Wrapper id="Intro">
+      <Styled.Contents>
+        <Styled.Title>
+          안녕하세요. 주니어 프론트엔드 개발자 정우진입니다.
+        </Styled.Title>
         <p>
           학부시절 자료구조와 알고리즘을 배우고 다양한 프로젝트에 참여하였고
           생각을 프로그래밍언어로 구현하는 것에 익숙해졌습니다.
@@ -62,9 +31,9 @@ function About() {
           되어있습니다.
         </p>
         <p>이런 저와 함께 성장 할 회사를 찾고 있습니다.</p>
-      </Contents>
-      <ImageBox greetingFlag={greetingFlag}></ImageBox>
-    </Wrapper>
+      </Styled.Contents>
+      <Styled.ImageBox greetingFlag={greetingFlag}></Styled.ImageBox>
+    </Styled.Wrapper>
   );
 }
 export default About;

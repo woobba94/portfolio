@@ -1,43 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
 import { ScrollContext } from '../../../context/ScrollContext';
-
-const ContactWrap = styled.div`
-  position: relative;
-  height: 100%;
-  width: 100%;
-`;
-const ContactItem = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: all 0.5s;
-  background-color: var(--color-main-3);
-  border-radius: 30px;
-  z-index: 2;
-  font-weight: 700;
-  transform: translateY(-50%);
-  cursor: pointer;
-  &:hover {
-    background-color: var(--color-point-1);
-  }
-`;
-const Footer = styled.div`
-  width: 100%;
-  height: 50%;
-  background-color: var(--color-main-3);
-  position: absolute;
-  bottom: 0;
-`;
-const Text = styled.div`
-  opacity: 0;
-  transition: all 1s;
-`;
+import * as Styled from './styled';
 
 function Contact() {
   const [contactFlag, setContactFlag] = useState(false);
@@ -68,21 +31,21 @@ function Contact() {
     }
   }, [scrollPercentage]);
   return (
-    <ContactWrap ref={items} id="Contact">
-      <ContactItem href="https://github.com/woobba94" target="_blank">
-        <Text>github</Text>
-      </ContactItem>
-      <ContactItem
+    <Styled.ContactWrap ref={items} id="Contact">
+      <Styled.ContactItem href="https://github.com/woobba94" target="_blank">
+        <Styled.Text>github</Styled.Text>
+      </Styled.ContactItem>
+      <Styled.ContactItem
         href="https://woobba.notion.site/fb82da99654240e29c39adabd9f398f4"
         target="_blank"
       >
-        <Text>이력서 보기</Text>
-      </ContactItem>
-      <ContactItem href="mailto:jwj3199@gmail.com" target="_blank">
-        <Text>gmail</Text>
-      </ContactItem>
-      <Footer />
-    </ContactWrap>
+        <Styled.Text>이력서 보기</Styled.Text>
+      </Styled.ContactItem>
+      <Styled.ContactItem href="mailto:jwj3199@gmail.com" target="_blank">
+        <Styled.Text>gmail</Styled.Text>
+      </Styled.ContactItem>
+      <Styled.Footer />
+    </Styled.ContactWrap>
   );
 }
 export default Contact;

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import data from './data';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   opacity: 0;
   display: flex;
   justify-content: flex-start;
@@ -16,7 +15,7 @@ const Wrapper = styled.div`
     position: absolute;
   }
 `;
-const Logo = styled.div`
+export const Logo = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,20 +27,6 @@ const Logo = styled.div`
     position: absolute;
   }
 `;
-const Contents = styled.div`
+export const Contents = styled.div`
   margin-left: 30px;
 `;
-
-function Item(props) {
-  const target = data[props.skillName];
-  return (
-    <Wrapper>
-      <Logo>
-        <i className={target.skillLogo} style={{ color: target.color }}></i>
-      </Logo>
-      <Contents>{target.skillContent}</Contents>
-    </Wrapper>
-  );
-}
-
-export default Item;
