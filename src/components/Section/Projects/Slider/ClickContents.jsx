@@ -52,10 +52,18 @@ const ClickContents = ({ isOpen, modalData }) => {
       <p>기여한 부분 : {modalData.contribution}</p>
       <p>{modalData.takeaway}</p>
       <LinkWrap>
-        <a href={modalData.githubLink} target="_blank">
+        <a
+          href={modalData.githubLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <i className="devicon-github-original" />
         </a>
-        <a href={modalData.releaseLink} target="_blank">
+        <a
+          href={modalData.releaseLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FontAwesomeIcon icon={faHouse} />
         </a>
       </LinkWrap>
