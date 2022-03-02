@@ -1,11 +1,11 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { ScrollContext } from '../../../context/ScrollContext';
 import * as Styled from './styled';
 
 function Contact() {
-  const [contactFlag, setContactFlag] = useState(false);
   const scrollPercentage = useContext(ScrollContext);
   const items = useRef();
+  let contactFlag = useRef(false);
   function onItem(target) {
     if (target === 'center') {
       items.current.children[1].style.animation =
@@ -22,8 +22,8 @@ function Contact() {
     }
   }
   useEffect(() => {
-    if (!contactFlag && scrollPercentage > 0.94) {
-      setContactFlag(true);
+    if (!contactFlag.current && scrollPercentage > 0.94) {
+      contactFlag.current = true;
       onItem('center');
       setTimeout(() => onItem('left'), 300);
       setTimeout(() => onItem('right'), 600);
@@ -32,16 +32,25 @@ function Contact() {
   }, [scrollPercentage]);
   return (
     <Styled.ContactWrap ref={items} id="Contact">
-      <Styled.ContactItem href="https://github.com/woobba94" target="_blank">
+      <Styled.ContactItem
+        href="https://github.com/woobba94"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Styled.Text>github</Styled.Text>
       </Styled.ContactItem>
       <Styled.ContactItem
         href="https://woobba.notion.site/fb82da99654240e29c39adabd9f398f4"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <Styled.Text>이력서 보기</Styled.Text>
       </Styled.ContactItem>
-      <Styled.ContactItem href="mailto:jwj3199@gmail.com" target="_blank">
+      <Styled.ContactItem
+        href="mailto:jwj3199@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Styled.Text>gmail</Styled.Text>
       </Styled.ContactItem>
       <Styled.Footer />
