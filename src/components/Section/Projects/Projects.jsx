@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 
 function ProjectTemp() {
   return (
-    <Wrapper>
+    <Wrapper id="Projects">
       <Slider heading="Example Slider" slides={data} />
     </Wrapper>
   );
