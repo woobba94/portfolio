@@ -9,7 +9,7 @@ function TechStack() {
   const iconWrap = useRef(null);
 
   function setProgress() {
-    const skillsPercent = [0.8, 0.7, 0.7, 0.5, 0.9, 0.4, 0.6];
+    const skillsPercent = [0.9, 0.8, 0.7, 0.7, 0.9, 0.4, 0.8];
     let index = 0;
     var ProgressBar = require('progressbar.js');
     console.log();
