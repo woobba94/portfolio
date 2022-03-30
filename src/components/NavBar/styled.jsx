@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const ButtonWrap = styled.div`
-  height: 100%;
+  top: 25%;
+  height: fit-content;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -11,7 +12,7 @@ export const ButtonWrap = styled.div`
   transform: translateX(-100px);
   mix-blend-mode: difference;
 `;
-export const Button = styled.div`
+export const Button = styled.a`
   background-color: var(--color-main-1);
   margin: 10px 0;
   height: fit-content;
@@ -20,8 +21,7 @@ export const Button = styled.div`
   width: fit-content;
   cursor: pointer;
   font-weight: 700;
-  transform: ${(props) =>
-    props.active ? 'translateX(0px)' : 'translateX(-100px)'};
+  transform: ${(props) => (props.active ? 'translateX(0px)' : 'translateX(-100px)')};
   transition: all 0.4s;
   &:hover {
     background-color: var(--color-point-1);

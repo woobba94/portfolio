@@ -3,13 +3,7 @@ import * as Styled from './styled';
 import { ScrollContext } from '../../context/ScrollContext';
 
 function NavBar() {
-  const [childStates, setChildStates] = useState([
-    true,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  const [childStates, setChildStates] = useState([true, false, false, false, false]);
   const scrollPercentage = useContext(ScrollContext);
   const buttonWrap = useRef();
   const beforeTarget = useRef(0);
@@ -51,21 +45,21 @@ function NavBar() {
 
   return (
     <Styled.ButtonWrap className="NavBar" ref={buttonWrap}>
-      <a href="#Intro">
-        <Styled.Button active={childStates[0]}>ABOUT ME</Styled.Button>
-      </a>
-      <a href="#TechStack">
-        <Styled.Button active={childStates[1]}>TECH STACK</Styled.Button>
-      </a>
-      <a href="#Experience">
-        <Styled.Button active={childStates[2]}>EXPERIENCE</Styled.Button>
-      </a>
-      <a href="#Projects">
-        <Styled.Button active={childStates[3]}>PROJECTS</Styled.Button>
-      </a>
-      <a href="#Contact">
-        <Styled.Button active={childStates[4]}>CONTACT ME</Styled.Button>
-      </a>
+      <Styled.Button active={childStates[0]} href="#Intro">
+        ABOUT ME
+      </Styled.Button>
+      <Styled.Button active={childStates[1]} href="#TechStack">
+        TECH STACK
+      </Styled.Button>
+      <Styled.Button active={childStates[2]} href="#Experience">
+        EXPERIENCE
+      </Styled.Button>
+      <Styled.Button active={childStates[3]} href="#Projects">
+        PROJECTS
+      </Styled.Button>
+      <Styled.Button active={childStates[4]} href="#Contact">
+        CONTACT ME
+      </Styled.Button>
     </Styled.ButtonWrap>
   );
 }
