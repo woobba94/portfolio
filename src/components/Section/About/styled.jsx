@@ -22,12 +22,12 @@ export const Title = styled.p`
 `;
 export const ImageBox = styled.div`
   position: absolute;
-  top: 30px;
   left: 50%;
+  top: 10%;
   height: 80%;
   background: url(${imgURL}) no-repeat;
+  background-repeat: no-repeat;
+  background-position: 0px 50%;
   background-size: cover;
-  width: 0%;
-  animation: ${(props) =>
-    props.greetingFlag && 'fade-right 1s linear forwards'};
+  animation: ${(props) => props.greetingFlag && 'fade-right 1s linear forwards'};
 `;
