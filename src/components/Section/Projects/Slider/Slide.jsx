@@ -4,8 +4,17 @@ import ClickContents from './ClickContents';
 import styled from 'styled-components';
 
 const Headline = styled.h1`
-  opacity: ${(props) => props.isOpen && '0'};
+  opacity: ${(props) => (props.isOpen ? '0' : '1')};
   transition: all 0.5s;
+  font-size: 8vmin;
+  font-weight: 600;
+  position: relative;
+  cursor: ${(props) => (props.isOpen ? 'default' : 'pointer')};
+`;
+const Image = styled.img`
+  z-index: 0;
+  opacity: ${(props) => (props.isOpen ? '0' : '0.5')};
+  transition-delay: 1s;
 `;
 function Slide(props) {
   let slide = useRef();
@@ -19,10 +28,6 @@ function Slide(props) {
     props.handleSlideClick(props.slide.index);
   };
 
-  const imageLoaded = (event) => {
-    event.target.style.opacity = 1;
-  };
-
   const { src, headline, index } = props.slide;
   const current = props.current;
   let classNames = 'slide';
@@ -32,33 +37,13 @@ function Slide(props) {
   else if (current + 1 === index) classNames += ' slide--next';
   return (
     <>
-      <li
-        ref={slide}
-        className={classNames}
-        onClick={handleSlideClick}
-        onMouseLeave={handleMouseLeave}
-      >
+      <li ref={slide} className={classNames} onClick={handleSlideClick} onMouseLeave={handleMouseLeave}>
         <div className="slide__image-wrapper">
-          <img
-            className="slide__image"
-            alt={headline}
-            src={src}
-            onLoad={imageLoaded}
-          />
-          <ClickContents
-            isOpen={props.isOpen[props.slide.index]}
-            modalData={props.slide.contents}
-          />
+          <ClickContents isOpen={props.isOpen[props.slide.index]} modalData={props.slide.contents} />
+          <Image isOpen={props.isOpen[props.slide.index]} alt={headline} src={src} />
         </div>
 
-        <article className="slide__content">
-          <Headline
-            isOpen={props.isOpen[props.slide.index]}
-            className="slide__headline"
-          >
-            {headline}
-          </Headline>
-        </article>
+        <Headline isOpen={props.isOpen[props.slide.index]}>{headline}</Headline>
       </li>
     </>
   );

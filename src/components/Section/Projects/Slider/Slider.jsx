@@ -4,7 +4,7 @@ import Controller from './Controller';
 
 function Slider(props) {
   const [current, setCurrent] = useState(0);
-  const [isOpen, setIsOpen] = useState([false, false, false, false, false]);
+  const [isOpen, setIsOpen] = useState([false, false, false, false, false, false]);
   const handlePreviousClick = () => {
     const previous = current - 1;
     setCurrent(previous < 0 ? props.slides.length - 1 : previous);
@@ -20,15 +20,13 @@ function Slider(props) {
     if (current !== index) {
       setCurrent(index);
     } else {
-      let newOpenState = [false, false, false, false, false];
+      let newOpenState = [false, false, false, false, false, false];
       newOpenState[index] = true;
       setIsOpen(newOpenState);
     }
   };
   const { slides, heading } = props;
-  const headingId = `slider-heading__${heading
-    .replace(/\s+/g, '-')
-    .toLowerCase()}`;
+  const headingId = `slider-heading__${heading.replace(/\s+/g, '-').toLowerCase()}`;
   const wrapperTransform = {
     transform: `translateX(-${current * (100 / slides.length)}%)`,
   };
@@ -42,30 +40,14 @@ function Slider(props) {
 
         {slides.map((slide) => {
           // console.log(slide.contents);
-          return (
-            <Slide
-              key={slide.index}
-              slide={slide}
-              current={current}
-              handleSlideClick={handleSlideClick}
-              isOpen={isOpen}
-            />
-          );
+          return <Slide key={slide.index} slide={slide} current={current} handleSlideClick={handleSlideClick} isOpen={isOpen} />;
         })}
       </ul>
 
       <div className="slider__controls">
-        <Controller
-          type="previous"
-          title="이전 슬라이드"
-          handleClick={handlePreviousClick}
-        />
+        <Controller type="previous" title="이전 슬라이드" handleClick={handlePreviousClick} />
 
-        <Controller
-          type="next"
-          title="다음 슬라이드"
-          handleClick={handleNextClick}
-        />
+        <Controller type="next" title="다음 슬라이드" handleClick={handleNextClick} />
       </div>
     </div>
   );
