@@ -8,8 +8,6 @@ function Intro() {
       <Styled.Canvas>
         <Tree />
       </Styled.Canvas>
-      {/* <video src={myVideo} muted autoPlay loop></video> */}
-      {/* <div className="hourglass"></div> */}
       <Styled.Left>
         <Move direction={'down'} rate={0.3}>
           <p>방문해 주셔서 감사합니다.</p>

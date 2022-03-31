@@ -8,8 +8,7 @@ function Contact() {
   let contactFlag = useRef(false);
   function onItem(target) {
     if (target === 'center') {
-      items.current.children[1].style.animation =
-        'on-contact-item 1s linear forwards';
+      items.current.children[1].style.animation = 'on-contact-item 1s linear forwards';
     } else if (target === 'left') {
       items.current.children[0].style.animation = 'to-left 2s linear forwards';
     } else {
@@ -32,25 +31,13 @@ function Contact() {
   }, [scrollPercentage]);
   return (
     <Styled.ContactWrap ref={items} id="Contact">
-      <Styled.ContactItem
-        href="https://github.com/woobba94"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <Styled.ContactItem href="https://github.com/woobba94" target="_blank" rel="noopener noreferrer">
         <Styled.Text>github</Styled.Text>
       </Styled.ContactItem>
-      <Styled.ContactItem
-        href="https://woobba.notion.site/fb82da99654240e29c39adabd9f398f4"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <Styled.ContactItem href="https://woobba.notion.site/7aa56c4553954cc282e37f0b20562aaf" target="_blank" rel="noopener noreferrer">
         <Styled.Text>이력서 보기</Styled.Text>
       </Styled.ContactItem>
-      <Styled.ContactItem
-        href="mailto:jwj3199@gmail.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <Styled.ContactItem href="mailto:jwj3199@gmail.com" target="_blank" rel="noopener noreferrer">
         <Styled.Text>gmail</Styled.Text>
       </Styled.ContactItem>
       <Styled.Footer />
