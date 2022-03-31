@@ -4,7 +4,7 @@
 
 ## 0. Release.
 
-[Link](https://woobba.site/)
+[Link](https://woobba.site/){:target="_blank"}
 
 ## 1. Tech stack.
 
